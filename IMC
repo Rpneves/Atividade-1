@@ -1,0 +1,39 @@
+import javax.swing.*;
+
+public class IMC {
+
+    public static void main(String[] args) {
+        String Peso, respAltura;
+        double peso, altura;
+        Peso = JOptionPane.showInputDialog("Digite seu peso em KGs");
+        peso = Double.parseDouble(Peso);
+
+        respAltura = JOptionPane.showInputDialog("Digite sua altura em cm: (e.g. 1.85m = 185cm)");
+        altura = Double.parseDouble(respAltura);
+        altura /= 100;
+
+        JOptionPane.showMessageDialog(null, calcIMC(peso, altura));
+
+    }
+
+    public static String calcIMC(double peso, double altura) {
+        String seuIMC;
+        double imc;
+        imc = peso / (altura * altura);
+
+        if (imc > 0 && imc < 18.5)
+            return "Abaixo do peso";
+        else if (imc >= 18.5 && imc < 25)
+            return "Peso normal";
+        else if (imc >= 25 && imc < 30)
+            return "Acima do peso";
+        else if (imc >= 30 && imc < 35)
+            return "Obesidade I";
+        else if (imc >= 35 && imc < 40)
+            return "Obesidade II";
+        else if (imc > 40)
+            return "Obesidade III";
+        else return "Valor Inválido";
+
+    }
+}
